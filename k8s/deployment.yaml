@@ -14,7 +14,6 @@ spec:
     spec:
       containers:
       - name: greeting-app-example
-        image: "this will be replaced by pipeline"
         # to make sure new pipeline builds gets new image always
         imagePullPolicy: Always
         resources:

@@ -7,5 +7,6 @@ spec:
     app: greeting-app-example
   ports:
   - port: 8080
+    name: "http"
+    protocol: "TCP"
     targetPort: 8080
-  type: NodePort
