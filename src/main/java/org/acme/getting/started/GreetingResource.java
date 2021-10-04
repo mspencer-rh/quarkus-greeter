@@ -1,5 +1,7 @@
 package org.acme.getting.started;
 
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tags;
 import org.jboss.resteasy.annotations.jaxrs.PathParam;
 
 import javax.inject.Inject;
@@ -14,10 +16,14 @@ public class GreetingResource {
     @Inject
     private GreetingService service;
 
+    @Inject
+    private MeterRegistry meterRegistry;
+
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     @Path("/greeting/{name}")
     public String greeting(@PathParam String name) {
+        meterRegistry.counter("greeting_counter", Tags.of("name", name)).increment();
         return service.greeting(name);
     }
 

@@ -1,4 +1,4 @@
-package org.acme.getting.started.health;
+package org.acme.getting.started.monitoring;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;
